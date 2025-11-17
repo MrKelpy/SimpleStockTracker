@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LaminariaCore_Winforms</name>
+    </assembly>
+    <members>
+        <member name="T:LaminariaCore_Winforms.forms.extensions.ControlExtensions">
+            <summary>
+            This class is used to extend the functionality of every control in Windows Forms.
+            </summary>
+        </member>
+        <member name="M:LaminariaCore_Winforms.forms.extensions.ControlExtensions.SendToOriginal(System.Windows.Forms.Control)">
+            <summary>
+            Searches for the original parent of the control inside OriginalParentCache, and sets the control's
+            parent back to it.
+            </summary>
+            <param name="self">The control the method is being called from</param>
+        </member>
+        <member name="M:LaminariaCore_Winforms.forms.extensions.ControlExtensions.IsCached(System.Windows.Forms.Control)">
+            <summary>
+            Checks whether the control is already contained in the cache.
+            </summary>
+            <param name="self">The control the method is being called from</param>
+            <returns>Whether the control is cached or not.</returns>
+        </member>
+        <member name="M:LaminariaCore_Winforms.forms.extensions.ControlExtensions.ForceCache(System.Windows.Forms.Control)">
+            <summary>
+            Force the caching of the original parent of the control.
+            <br></br>
+            You're most likely doing something wrong if you're using this method. It shouldn't be
+            used by you in 99% of the cases, but it's here for that 1%.
+            If you're using this method, make sure you know what you're doing.
+            </summary>
+            <param name="self">The control the method is being called from</param>
+        </member>
+        <member name="T:LaminariaCore_Winforms.forms.extensions.PanelExtensions">
+            <summary>
+            This class implements methods to extend the functionality of Panels in Windows Forms.
+            </summary>
+        </member>
+        <member name="M:LaminariaCore_Winforms.forms.extensions.PanelExtensions.AddAllFrom(System.Windows.Forms.Panel,System.Windows.Forms.Panel)">
+            <summary>
+            This extension method is used to add the contents from an external panel into
+            the current panel.
+            </summary>
+            <param name="self">The panel the method is being called from</param>
+            <param name="targetPanel">The panel to add the contents of</param>
+        </member>
+        <member name="M:LaminariaCore_Winforms.forms.extensions.PanelExtensions.SetAllFrom(System.Windows.Forms.Panel,System.Windows.Forms.Panel)">
+            <summary>
+            Replaces all the controls from the current panel with the controls from the target panel.
+            </summary>
+            <param name="self">The panel the method is being called from</param>
+            <param name="targetPanel">The panel to clone the contents of</param>
+        </member>
+        <member name="T:LaminariaCore_Winforms.internals.caches.OriginalParentCache">
+            <summary>
+            This singleton internal class implements a cache that stores every control's original
+            parent, so that the dynamic loading/unloading of active components can be managed smoothly.
+            </summary>
+        </member>
+        <member name="F:LaminariaCore_Winforms.internals.caches.OriginalParentCache.INSTANCE">
+            <summary>
+            The instance used to access the class, since it is a singleton.
+            </summary>
+        </member>
+        <member name="F:LaminariaCore_Winforms.internals.caches.OriginalParentCache.cache">
+            <summary>
+            The cache containing the original parents of every control.
+            </summary>
+        </member>
+        <member name="M:LaminariaCore_Winforms.internals.caches.OriginalParentCache.AddToCache(System.Windows.Forms.Control)">
+            <summary>
+            Adds the specified control to the cache, in the form of a name:parent mapping.
+            </summary>
+            <param name="control">The control to add to the cache.</param>
+            <returns>Whether or not the control was successfully added to cache.</returns>
+        </member>
+        <member name="M:LaminariaCore_Winforms.internals.caches.OriginalParentCache.GetParentOf(System.String)">
+            <summary>
+            Returns the parent of the specified control, as it was before it was added to the cache.
+            </summary>
+            <param name="name">The name of the control to look for in the cache</param>
+            <returns>The cached original parent for the specified name</returns>
+        </member>
+        <member name="M:LaminariaCore_Winforms.internals.caches.OriginalParentCache.Contains(System.String)">
+            <summary>
+            Checks if the specified control is cached.
+            </summary>
+            <param name="name">The control name to check for in the cache.</param>
+            <returns>Whether the control exists in the cache or not.</returns>
+        </member>
+    </members>
+</doc>

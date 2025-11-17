@@ -1,0 +1,16 @@
+C:\dev\C#\SimpleStockTracker\bin\Debug\SimpleStockTracker.exe.config
+C:\dev\C#\SimpleStockTracker\bin\Debug\SimpleStockTracker.exe
+C:\dev\C#\SimpleStockTracker\bin\Debug\SimpleStockTracker.pdb
+C:\dev\C#\SimpleStockTracker\bin\Debug\LaminariaCore_General.dll
+C:\dev\C#\SimpleStockTracker\bin\Debug\LaminariaCore_Winforms.dll
+C:\dev\C#\SimpleStockTracker\bin\Debug\System.CodeDom.dll
+C:\dev\C#\SimpleStockTracker\bin\Debug\LaminariaCore_General.xml
+C:\dev\C#\SimpleStockTracker\bin\Debug\LaminariaCore_Winforms.xml
+C:\dev\C#\SimpleStockTracker\bin\Debug\System.CodeDom.xml
+C:\dev\C#\SimpleStockTracker\obj\Debug\SimpleStockTracker.csproj.AssemblyReference.cache
+C:\dev\C#\SimpleStockTracker\obj\Debug\SimpleStockTracker.Properties.Resources.resources
+C:\dev\C#\SimpleStockTracker\obj\Debug\SimpleStockTracker.csproj.GenerateResource.cache
+C:\dev\C#\SimpleStockTracker\obj\Debug\SimpleStockTracker.csproj.CoreCompileInputs.cache
+C:\dev\C#\SimpleStockTracker\obj\Debug\SimpleSt.7A1573DB.Up2Date
+C:\dev\C#\SimpleStockTracker\obj\Debug\SimpleStockTracker.exe
+C:\dev\C#\SimpleStockTracker\obj\Debug\SimpleStockTracker.pdb

@@ -1,2 +1,16 @@
-# SimpleStockTracker
-A simple stock tracker app designed to keep very simple stock records.
+<div style="display:flex; justify-content:center; align-items:center;">
+  <img src="./logo.png" alt="App logo" style="max-width:35%; height:auto;">
+</div>
+
+# Simple Stock Tracker
+
+A lightweight and intuitive stock-tracking app designed to keep very simple product and brand records.
+The app displays a menu of brands, and selecting one takes you directly to that brand’s stock list.
+Perfect for small shops, workshops, or anyone who needs a no-nonsense stock overview.
+
+## Installation
+
+Simply download and run the setup available on the **Releases** page.
+
+➡️ Go to **Releases** → download the latest installer → run it.  
+No additional configuration required.
