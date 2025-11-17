@@ -7,19 +7,19 @@ using SimpleStockTracker.gui;
 
 namespace SimpleStockTracker
 {
-    static class Program
+    internal static class Program
     {
         
         /// <summary>
         /// The path to the application data folder.
         /// </summary>
-        public static String AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\SimpleStockTracker\\";
+        public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\SimpleStockTracker\\";
         
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

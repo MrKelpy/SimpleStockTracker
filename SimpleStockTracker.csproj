@@ -147,7 +147,8 @@
         <None Include="App.config"/>
     </ItemGroup>
     <ItemGroup>
-      <Content Include="icon.png" />
+      <Content Include="icon.ico" />
+      <Content Include="logo.png" />
       <Content Include="README.md" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
