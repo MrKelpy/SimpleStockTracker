@@ -1,6 +1,6 @@
-<div style="display:flex; justify-content:center; align-items:center;">
-  <img src="./logo.png" alt="App logo" style="max-width:35%; height:auto;">
-</div>
+<p align="center">
+  <img src="logo.png" alt="LOGO" width="30%">
+</p>
 
 # Simple Stock Tracker
 
