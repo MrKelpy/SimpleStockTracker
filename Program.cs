@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LaminariaCore_General.utils;
+using SimpleStockTracker.common.models;
 using SimpleStockTracker.gui;
 
 namespace SimpleStockTracker
@@ -21,9 +20,12 @@ namespace SimpleStockTracker
         [STAThread]
         private static void Main()
         {
+            FileUtils.EnsurePath(AppDataPath + "/brands/");
+            FileUtils.EnsurePath(AppDataPath + "/brand_images/");
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Mainframe());
+            Application.Run(new BrandSelectorInterface());
         }
     }
 }

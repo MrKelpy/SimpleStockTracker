@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace SimpleStockTracker.gui
 {
-    partial class BrandSelectorInterface
+    internal partial class BrandSelectorInterface
     {
         /// <summary>
         /// Required designer variable.
@@ -31,30 +31,80 @@ namespace SimpleStockTracker.gui
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrandSelectorInterface));
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.buttonGeneratePDF = new System.Windows.Forms.ToolStripButton();
+            this.buttonAddBrand = new System.Windows.Forms.ToolStripButton();
             this.Frame = new System.Windows.Forms.Panel();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.buttonGeneratePDF, this.buttonAddBrand });
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(794, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // buttonGeneratePDF
+            // 
+            this.buttonGeneratePDF.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonGeneratePDF.Image = ((System.Drawing.Image)(resources.GetObject("buttonGeneratePDF.Image")));
+            this.buttonGeneratePDF.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonGeneratePDF.Name = "buttonGeneratePDF";
+            this.buttonGeneratePDF.Size = new System.Drawing.Size(97, 22);
+            this.buttonGeneratePDF.Text = "Obter Inventário";
+            // 
+            // buttonAddBrand
+            // 
+            this.buttonAddBrand.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.buttonAddBrand.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonAddBrand.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddBrand.Image")));
+            this.buttonAddBrand.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonAddBrand.Name = "buttonAddBrand";
+            this.buttonAddBrand.Size = new System.Drawing.Size(98, 22);
+            this.buttonAddBrand.Text = "Adicionar Marca";
+            this.buttonAddBrand.Click += new System.EventHandler(this.buttonAddBrand_Click);
             // 
             // Frame
             // 
             this.Frame.AutoScroll = true;
             this.Frame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Frame.Location = new System.Drawing.Point(0, 0);
+            this.Frame.Location = new System.Drawing.Point(0, 25);
             this.Frame.Name = "Frame";
-            this.Frame.Size = new System.Drawing.Size(784, 461);
-            this.Frame.TabIndex = 0;
+            this.Frame.Size = new System.Drawing.Size(794, 446);
+            this.Frame.TabIndex = 1;
             // 
             // BrandSelectorInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(794, 471);
             this.Controls.Add(this.Frame);
+            this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(15, 15);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "BrandSelectorInterface";
-            this.Text = "BrandsPanelInterface";
+            this.Text = "Logística de Stock";
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
+        private System.Windows.Forms.ToolStripButton buttonAddBrand;
+
+        private System.Windows.Forms.ToolStripButton buttonGeneratePDF;
+
         private System.Windows.Forms.Panel Frame;
+
+        private System.Windows.Forms.ToolStrip toolStrip1;
 
         #endregion
     }

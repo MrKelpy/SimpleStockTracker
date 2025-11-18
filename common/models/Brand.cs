@@ -34,9 +34,9 @@ namespace SimpleStockTracker.common.models
         /// <param name="path">The path to the brand config data.</param>
         public Brand(string path)
         {
-            this.Name = Path.GetFileName(path);
+            this.Name = Path.GetFileName(path).Replace(".json", "");
             this.ConfigPath = path;
-            this.ImagePath = Path.Combine(Program.AppDataPath, "brand_images" , this.Name + ".png");
+            this.ImagePath = Path.Combine(Program.AppDataPath, "brand_images" , this.Name.ToLower() + ".png");
         }
         
         /// <summary>

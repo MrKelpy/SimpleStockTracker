@@ -106,19 +106,10 @@
         <Compile Include="gui\BrandSelectorInterface.Designer.cs">
           <DependentUpon>BrandSelectorInterface.cs</DependentUpon>
         </Compile>
-        <Compile Include="gui\Mainframe.cs">
-          <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="gui\Mainframe.Designer.cs">
-          <DependentUpon>Mainframe.cs</DependentUpon>
-        </Compile>
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <EmbeddedResource Include="gui\BrandSelectorInterface.resx">
           <DependentUpon>BrandSelectorInterface.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="gui\Mainframe.resx">
-          <DependentUpon>Mainframe.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="gui\NewItemDialog.resx">
           <DependentUpon>NewItemDialog.cs</DependentUpon>

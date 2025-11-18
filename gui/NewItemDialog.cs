@@ -8,24 +8,28 @@ namespace SimpleStockTracker.gui
     /// </summary>
     public partial class NewItemDialog : Form
     {
-        
+
         /// <summary>
         /// The resulting item name.
         /// </summary>
-        public string ItemName => textBox1.Text;
-        
+        public string ItemNameResult;
+
         /// <summary>
         /// The resulting item quantity.
         /// </summary>
-        public int ItemQuantity => (int)numericUpDown1.Value;
+        public int ItemQuantityResult;
         
         /// <summary>
-        /// Builds a generic new item dialog.
+        /// Builds a generic new item dialog that can either be used for brands or products.
         /// </summary>
-        /// <param name="name"></param>
-        public NewItemDialog(string name)
+        public NewItemDialog(bool brand = true)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
+            
+            this.Text = brand ? "Adicionar Marca" : "Adicionar Produto";
+            this.labelName.Text = brand ? "Nome da Marca" : "Nome do Produto";
+            this.labelQuantity.Visible = this.numericUpDown1.Visible = !brand;
         }
 
         /// <summary>
@@ -36,12 +40,21 @@ namespace SimpleStockTracker.gui
             buttonConfirm.Enabled = !string.IsNullOrWhiteSpace(textBox1.Text) &&
                               textBox1.Text.Length <= 50;
         
+        /// <summary>
+        /// Confirms the creation of the new item, saves the results, and closes the dialog.
+        /// </summary>
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+            this.ItemNameResult = textBox1.Text;
+            this.ItemQuantityResult = (int) numericUpDown1.Value;
             this.Close();
         }
 
+        
+        /// <summary>
+        /// Cancels the creation of the new item and closes the dialog.
+        /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
