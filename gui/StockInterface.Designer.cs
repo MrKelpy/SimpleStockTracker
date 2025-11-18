@@ -32,58 +32,153 @@ namespace SimpleStockTracker.gui
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockInterface));
-            this.Frame = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.buttonAddBrand = new System.Windows.Forms.ToolStripButton();
+            this.buttonAddProduct = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.textBoxFactor = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.DataGrid = new System.Windows.Forms.DataGridView();
+            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Decrement = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonIncrement = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Frame
-            // 
-            this.Frame.AutoScroll = true;
-            this.Frame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Frame.Location = new System.Drawing.Point(0, 25);
-            this.Frame.Name = "Frame";
-            this.Frame.Size = new System.Drawing.Size(784, 436);
-            this.Frame.TabIndex = 3;
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.buttonAddBrand });
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.buttonAddProduct, this.toolStripLabel1, this.textBoxFactor, this.toolStripSeparator1 });
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(784, 25);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(1176, 32);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // buttonAddBrand
+            // buttonAddProduct
             // 
-            this.buttonAddBrand.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.buttonAddBrand.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.buttonAddBrand.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddBrand.Image")));
-            this.buttonAddBrand.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonAddBrand.Name = "buttonAddBrand";
-            this.buttonAddBrand.Size = new System.Drawing.Size(108, 22);
-            this.buttonAddBrand.Text = "Adicionar Produto";
+            this.buttonAddProduct.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.buttonAddProduct.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProduct.Image")));
+            this.buttonAddProduct.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonAddProduct.Name = "buttonAddProduct";
+            this.buttonAddProduct.Size = new System.Drawing.Size(161, 29);
+            this.buttonAddProduct.Text = "Adicionar Produto";
+            this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(109, 29);
+            this.toolStripLabel1.Text = "Quantidade:";
+            // 
+            // textBoxFactor
+            // 
+            this.textBoxFactor.Name = "textBoxFactor";
+            this.textBoxFactor.Size = new System.Drawing.Size(200, 32);
+            this.textBoxFactor.TextChanged += new System.EventHandler(this.textBoxFactor_TextChanged);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
+            // 
+            // DataGrid
+            // 
+            this.DataGrid.AllowUserToAddRows = false;
+            this.DataGrid.AllowUserToDeleteRows = false;
+            this.DataGrid.AllowUserToResizeColumns = false;
+            this.DataGrid.AllowUserToResizeRows = false;
+            this.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.productName, this.productQuantity, this.Decrement, this.buttonIncrement, this.buttonRemove });
+            this.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGrid.Location = new System.Drawing.Point(0, 32);
+            this.DataGrid.Name = "DataGrid";
+            this.DataGrid.ReadOnly = true;
+            this.DataGrid.RowHeadersVisible = false;
+            this.DataGrid.RowTemplate.Height = 28;
+            this.DataGrid.Size = new System.Drawing.Size(1176, 677);
+            this.DataGrid.TabIndex = 3;
+            this.DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HandleButtonClicks);
+            // 
+            // productName
+            // 
+            this.productName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productName.HeaderText = "Nome do Produto";
+            this.productName.Name = "productName";
+            this.productName.ReadOnly = true;
+            // 
+            // productQuantity
+            // 
+            this.productQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productQuantity.HeaderText = "Quantidade";
+            this.productQuantity.Name = "productQuantity";
+            this.productQuantity.ReadOnly = true;
+            // 
+            // Decrement
+            // 
+            this.Decrement.HeaderText = "";
+            this.Decrement.Name = "Decrement";
+            this.Decrement.ReadOnly = true;
+            this.Decrement.Text = "-";
+            this.Decrement.UseColumnTextForButtonValue = true;
+            // 
+            // buttonIncrement
+            // 
+            this.buttonIncrement.HeaderText = "";
+            this.buttonIncrement.Name = "buttonIncrement";
+            this.buttonIncrement.ReadOnly = true;
+            this.buttonIncrement.Text = "+";
+            this.buttonIncrement.UseColumnTextForButtonValue = true;
+            // 
+            // buttonRemove
+            // 
+            this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRemove.HeaderText = "";
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.ReadOnly = true;
+            this.buttonRemove.Text = "Apagar";
+            this.buttonRemove.UseColumnTextForButtonValue = true;
             // 
             // StockInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.Frame);
+            this.ClientSize = new System.Drawing.Size(1176, 709);
+            this.Controls.Add(this.DataGrid);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StockInterface";
             this.Text = "BrandInformationInterface";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Panel Frame;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+
+        private System.Windows.Forms.ToolStripTextBox textBoxFactor;
+
+        private System.Windows.Forms.DataGridViewButtonColumn buttonIncrement;
+        private System.Windows.Forms.DataGridViewButtonColumn buttonRemove;
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn productQuantity;
+        private System.Windows.Forms.DataGridViewButtonColumn Decrement;
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
+
+        private System.Windows.Forms.DataGridView DataGrid;
+
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton buttonAddBrand;
+        private System.Windows.Forms.ToolStripButton buttonAddProduct;
 
         private System.Windows.Forms.Panel Panel;
 

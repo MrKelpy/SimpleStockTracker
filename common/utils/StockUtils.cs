@@ -20,21 +20,6 @@ namespace SimpleStockTracker.common.utils
         /// </summary>
         /// <returns>A list of all registered brands.</returns>
         public static List<Brand> GetBrands() => Directory.GetFiles(Program.AppDataPath + "brands/").Select(brandPath => new Brand(brandPath)).ToList();
-
-        /// <summary>
-        /// Saves the entirety of a brand's information to its file.
-        /// </summary>
-        public static void SaveBrandInformation(Brand brand)
-        {
-            JObject json = new JObject();
-            FileUtils.EnsurePath(Path.GetDirectoryName(brand.ConfigPath));
-
-            // Saves each product in the brand to its dictionary so it's json-ready
-            foreach (var product in brand.GetProducts())
-                json[product.Name] = product.Quantity;
-            
-            File.WriteAllText(Program.AppDataPath, json.ToString(Formatting.Indented));
-        }
         
         /// <summary>
         /// Creates a new brand config file in the app data path, effectively registering it.

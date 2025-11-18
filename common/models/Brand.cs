@@ -73,5 +73,25 @@ namespace SimpleStockTracker.common.models
             
             return products;
         }
+
+        /// <summary>
+        /// Sets a given product's information into the brand config file.
+        /// </summary>
+        /// <param name="product">The product to add into the brand</param>
+        public void SetProduct(Product product)
+        {
+            // Read the JSON data from the config file
+            string jsonData = File.ReadAllText(this.ConfigPath);
+            JObject obj = JObject.Parse(jsonData);
+            
+            // Add the new product or remove it if the quantity is -1
+            if (product.Quantity == -1  && obj.ContainsKey(product.Name))
+                obj.Remove(product.Name);
+            
+            else obj[product.Name] = product.Quantity;
+            
+            // Write back to the config file
+            File.WriteAllText(this.ConfigPath, obj.ToString());
+        }
     }
 }

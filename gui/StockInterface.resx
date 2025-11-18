@@ -121,10 +121,10 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonAddBrand.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonAddProduct.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -134,6 +134,45 @@
         mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
         kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="productName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="productQuantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Decrement.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="buttonIncrement.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="buttonRemove.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAMMOAADDDgAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wA9MykZQjcwr0I3MK89MykZ////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AAAAAAE8LypiRz0370c8N/9GOzb/ST857zwvKmIAAAAB////AP//
+        /wD///8A////AP///wD///8A////AD4uJyFFOza9T0VA/z4zLf87MCr/OzAq/z0yLf9PRUD/Rjs3xDwv
+        KCb///8A////AP///wD///8AAAAAAjwxKnNKPzn2RTs1/zswKv87MCr/Oi8q/zgtKP88Mi3/Oi8q/0Q6
+        NP9LQDr2PDEqcwAAAAL///8A////AEArKwxKQDv/PTIs/zovKv84Lij/OC4p/zYsJv94c3D/cWxp/zYr
+        Jv85Lin/PTIs/0pAO/9AKysM////AP///wBAKysMST85/zswKv82LSf/TUhF/0M9Of+LiIb/R0A8/0lB
+        Pf94c3H/UUlE/zovKf9JPzn/QCsrDP///wD///8AQCsrDEk/Of85Lyn/Vk9L/4iGhf97eXj/enh3/4KA
+        f/9iXVv/NCsm/zgtKf87MCr/ST85/0ArKwz///8A////AEArKwxJPzn/OS4p/2NcWf+AfXv/iYaE/zgw
+        Lf83Lir/TUdF/1ZQTf85Lyn/OzAq/0k/Of9AKysM////AP///wBAKysMST85/zswKv85Lij/Niwn/zox
+        LP85Lyn/Oi8p/zguKP84Lij/Oi8q/zswKv9JPzn/QCsrDP///wD///8AQCsrDEk/Of87MCr/OS8p/zov
+        Kf86Lyn/OS8p/zkvKf85Lin/OS8p/zovKf87MCr/ST85/0ArKwz///8A////AEArKwxJPzn/PTMu/25o
+        ZP9BODP/TERA/1xVUf9TTEf/ZV9b/1lSTv9UTUj/PDEs/0k/Of9AKysM////AP///wBAKysMST85/0I5
+        NP+JhYL/UElF/3RvbP90bmz/cm1q/3Zxbv9taGX/iISB/zgtKP9JPzn/QCsrDP///wD///8AQCsrDEk/
+        Of86MCr/XldT/1BIQ/9cVVH/T0dD/0hAO/9WT0v/S0M//0lAO/88MSv/ST85/0ArKwz///8A////AEAr
+        KwxJPzn/OzAq/zovKf86Lyn/Oi8p/zovKf86Lyr/Oi8p/zovKv86Lyr/OzAq/0k/Of9AKysM////AP//
+        /wBAKysMST85/zswKv87MCr/OzAq/zswKv87MCr/OzAq/zswKv87MCr/OzAq/zswKv9JPzn/QCsrDP//
+        /wD///8AQCsrDEA2MP9IPjj/SD44/0g+OP9IPjj/SD44/0g+OP9IPjj/SD44/0g+OP9IPjj/QDYw/0Ar
+        Kwz///8A/D8AAPAPAADgBwAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIAB
+        AACAAQAAgAEAAA==
 </value>
   </data>
 </root>
