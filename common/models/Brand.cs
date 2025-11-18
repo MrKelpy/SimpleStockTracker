@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using SimpleStockTracker.gui;
 
 namespace SimpleStockTracker.common.models
 {
@@ -35,6 +36,19 @@ namespace SimpleStockTracker.common.models
         {
             this.Name = Path.GetFileName(path);
             this.ConfigPath = path;
+            this.ImagePath = Path.Combine(Program.AppDataPath, "brand_images" , this.Name + ".png");
+        }
+        
+        /// <summary>
+        /// Gets the image/logo of the brand based on the name of the brand.
+        /// </summary>
+        /// <returns>A Bitmap object representing the picture</returns>
+        public Bitmap GetImage()
+        {
+            if (File.Exists(this.ImagePath))
+                return new Bitmap(this.ImagePath);
+            
+            return null;
         }
         
         /// <summary>

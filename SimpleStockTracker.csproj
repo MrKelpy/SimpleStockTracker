@@ -120,6 +120,9 @@
         <EmbeddedResource Include="gui\Mainframe.resx">
           <DependentUpon>Mainframe.cs</DependentUpon>
         </EmbeddedResource>
+        <EmbeddedResource Include="gui\NewItemDialog.resx">
+          <DependentUpon>NewItemDialog.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="gui\StockInterface.resx">
           <DependentUpon>StockInterface.cs</DependentUpon>
         </EmbeddedResource>
@@ -147,7 +150,6 @@
         <None Include="App.config"/>
     </ItemGroup>
     <ItemGroup>
-      <Content Include="icon.png" />
       <Content Include="README.md" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
