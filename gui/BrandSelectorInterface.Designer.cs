@@ -33,7 +33,7 @@ namespace SimpleStockTracker.gui
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrandSelectorInterface));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.buttonGeneratePDF = new System.Windows.Forms.ToolStripButton();
+            this.buttonGenerateReport = new System.Windows.Forms.ToolStripButton();
             this.buttonAddBrand = new System.Windows.Forms.ToolStripButton();
             this.Frame = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
@@ -41,21 +41,22 @@ namespace SimpleStockTracker.gui
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.buttonGeneratePDF, this.buttonAddBrand });
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.buttonGenerateReport, this.buttonAddBrand });
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(794, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // buttonGeneratePDF
+            // buttonGenerateReport
             // 
-            this.buttonGeneratePDF.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.buttonGeneratePDF.Image = ((System.Drawing.Image)(resources.GetObject("buttonGeneratePDF.Image")));
-            this.buttonGeneratePDF.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonGeneratePDF.Name = "buttonGeneratePDF";
-            this.buttonGeneratePDF.Size = new System.Drawing.Size(97, 22);
-            this.buttonGeneratePDF.Text = "Obter Inventário";
+            this.buttonGenerateReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonGenerateReport.Image = ((System.Drawing.Image)(resources.GetObject("buttonGenerateReport.Image")));
+            this.buttonGenerateReport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonGenerateReport.Name = "buttonGenerateReport";
+            this.buttonGenerateReport.Size = new System.Drawing.Size(97, 22);
+            this.buttonGenerateReport.Text = "Obter Inventário";
+            this.buttonGenerateReport.Click += new System.EventHandler(this.buttonGenerateReport_Click);
             // 
             // buttonAddBrand
             // 
@@ -71,6 +72,8 @@ namespace SimpleStockTracker.gui
             // Frame
             // 
             this.Frame.AutoScroll = true;
+            this.Frame.BackColor = System.Drawing.Color.White;
+            this.Frame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Frame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Frame.Location = new System.Drawing.Point(0, 25);
             this.Frame.Name = "Frame";
@@ -100,7 +103,7 @@ namespace SimpleStockTracker.gui
 
         private System.Windows.Forms.ToolStripButton buttonAddBrand;
 
-        private System.Windows.Forms.ToolStripButton buttonGeneratePDF;
+        private System.Windows.Forms.ToolStripButton buttonGenerateReport;
 
         private System.Windows.Forms.Panel Frame;
 

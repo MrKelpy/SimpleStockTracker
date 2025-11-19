@@ -14,17 +14,46 @@ namespace SimpleStockTracker.gui
     /// </summary>
     public partial class StockInterface : Form
     {
-        
+
         /// <summary>
         /// The brand associated with this stock interface.
         /// </summary>
         private Brand Brand { get; set; }
-        
+
         public StockInterface(Brand brand)
         {
             this.Brand = brand;
             this.InitializeComponent();
             this.BuildProductListLayout();
+            this.CenterToParent();
+            this.StyleDataGridView(this.DataGrid);
+        }
+
+        /// <summary>
+        /// Style the grid to have a gray header, and to look modern with a zebra stripe effect.
+        /// </summary>
+        private void StyleDataGridView(DataGridView dataGrid)
+        {
+            dataGrid.EnableHeadersVisualStyles = false;
+            dataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.DimGray;
+            dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+
+            // --- 2. Grid Geral ---
+            dataGrid.RowHeadersVisible = false;
+            dataGrid.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGrid.AllowUserToAddRows = false;
+            dataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGrid.MultiSelect = false;
+
+            // --- 3. Zebra Stripe Effect ---
+            dataGrid.RowsDefaultCellStyle.BackColor = Color.White;
+            dataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
+
+            // --- 4. Cores de Seleção ---
+            dataGrid.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dataGrid.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         /// <summary>
@@ -38,20 +67,11 @@ namespace SimpleStockTracker.gui
 
             foreach (Product product in products)
                 this.DataGrid.Rows.Add(product.Name, product.Quantity);
-            
+
             // Sort the data grid by product name
             this.DataGrid.Sort(this.DataGrid.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
             this.ResumeLayout(true);
-            
-            // Change the button colour to red for the delete button and add the handlers for the increment/decrement buttons
-            foreach (DataGridViewRow row in this.DataGrid.Rows)
-            {
-                DataGridViewCell deleteCell = row.Cells[this.DataGrid.Columns.Count - 1];
-                deleteCell.Style.BackColor = Color.Firebrick;
-                deleteCell.Style.ForeColor = Color.White;
-            }
         }
-
 
         /// <summary>
         /// Adds a product to the stock.
@@ -62,12 +82,12 @@ namespace SimpleStockTracker.gui
             dialog.ShowDialog();
 
             if (dialog.DialogResult != DialogResult.OK) return;
-            
+
             Product product = new Product(dialog.ItemNameResult, dialog.ItemQuantityResult);
             this.Brand.SetProduct(product);
             this.BuildProductListLayout();
         }
-        
+
         /// <summary>
         /// Handles the increment button click event in the data grid view.
         /// </summary>
@@ -75,12 +95,22 @@ namespace SimpleStockTracker.gui
         private void HandleQuantityChange(object sender, DataGridViewCellEventArgs e, int value)
         {
             string gridProductName = this.DataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-            int factoredValue = int.Parse(textBoxFactor.Text) * value;
-            Product product = new Product(gridProductName, this.Brand.GetProducts().First(p => p.Name == gridProductName).Quantity + factoredValue);
-            
+            int factor = textBoxFactor.Text == "" ? 1 : int.Parse(textBoxFactor.Text);
+            int factoredValue = factor * value;
+
+            Product product = new Product(gridProductName,
+                this.Brand.GetProducts().First(p => p.Name == gridProductName).Quantity + factoredValue);
+            if (product.Quantity < 0) product.Quantity = 0;
+
             this.Brand.SetProduct(product);
             this.BuildProductListLayout();
         }
+
+        /// <summary>
+        /// Handle double-clicks as two increment actions.
+        /// </summary>
+        private void DataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e) =>
+            this.HandleButtonClicks(sender, e);
 
         /// <summary>
         /// Handles button clicks in the data grid view for incrementing, decrementing, and removing products.
@@ -88,23 +118,30 @@ namespace SimpleStockTracker.gui
         private void HandleButtonClicks(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return; // Ignore header clicks
-            
+
             if (e.ColumnIndex == this.DataGrid.Rows[e.RowIndex].Cells["Decrement"].ColumnIndex)
                 this.HandleQuantityChange(sender, e, -1);
-            
+
             else if (e.ColumnIndex == this.DataGrid.Rows[e.RowIndex].Cells["buttonIncrement"].ColumnIndex)
                 this.HandleQuantityChange(sender, e, 1);
-            
+
             else if (e.ColumnIndex == this.DataGrid.Rows[e.RowIndex].Cells["buttonRemove"].ColumnIndex)
             {
-                string gridProductName = this.DataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+                if (MessageBox.Show(
+                        "Remover este produto do stock?",
+                        "Confirmação",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    ) != DialogResult.Yes) return;
                 
+                string gridProductName = this.DataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+
                 Product product = new Product(gridProductName, -1);
                 this.Brand.SetProduct(product);
                 this.BuildProductListLayout();
             }
         }
-        
+
         /// <summary>
         /// Only allow numbers in the factor text box.
         /// </summary>
@@ -116,5 +153,7 @@ namespace SimpleStockTracker.gui
             if (!"0123456789".Contains(textBox.Text.Last()))
                 textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
         }
+
+        private void DataGrid_SelectionChanged(object sender, EventArgs e) => this.DataGrid.ClearSelection();
     }
 }

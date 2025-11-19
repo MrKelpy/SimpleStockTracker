@@ -15,6 +15,11 @@ namespace SimpleStockTracker
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\SimpleStockTracker\\";
         
         /// <summary>
+        /// The path to the user's downloads folder.
+        /// </summary>
+        public static readonly string DownloadsPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads\\";
+        
+        /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
